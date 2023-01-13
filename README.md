@@ -1,4 +1,4 @@
-# <TETU_BUTA>
+# <TETSU_BUTA>
 
 ## サイト概要
 
