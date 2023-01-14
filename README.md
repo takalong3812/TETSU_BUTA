@@ -25,7 +25,7 @@
 
 ## 実装機能リスト
 
-url:https://docs.google.com/spreadsheets/d/1yL9hOawq5b9CA3TLteiTF5T7VaS1iTNj5Yt2zOOXqDQ/edit?usp=sharing
+URL:https://docs.google.com/spreadsheets/d/1yL9hOawq5b9CA3TLteiTF5T7VaS1iTNj5Yt2zOOXqDQ/edit?usp=sharing
 
 ## 設計書
 
@@ -44,4 +44,8 @@ JSライブラリ：jQuery
 IDE：Cloud9
 
 ## 使用素材
+
+pixabay(画像)
+
+URL:https://pixabay.com/ja/
 
