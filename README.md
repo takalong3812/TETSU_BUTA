@@ -29,7 +29,9 @@ URL:https://docs.google.com/spreadsheets/d/1yL9hOawq5b9CA3TLteiTF5T7VaS1iTNj5Yt2
 
 ## 設計書
 
-<...>
+画面遷移図
+
+URL: https://www.figma.com/file/DAZqqGFrKVqYtQ4GuDjnnq/%E7%84%A1%E9%A1%8C?t=8JU3a8I5fGqe4rFQ-6
 
 ## 開発環境
 
