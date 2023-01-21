@@ -1,0 +1,33 @@
+<div class="container">
+ <h2>新規ユーザー登録</h2>
+
+<%= form_with model: @user, url: user_registration_path, local:true do |f| %>
+  <%= render "user/shared/error_messages", resource: resource %>
+
+  <div class="form-group row">
+    <%= f.label :"メールアドレス", class: "col-md-3" %>
+    <%= f.email_field :email, placeholder: "", class: "col-md-5 form-control" %>
+  </div>
+  
+  <div class="form-group row">
+      <%= f.label :"パスワード(６文字以上)", class: "col-md-3" %>
+      <%= f.password_field :password, class: "col-md-5 form-control" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :"ユーザー名" , class: "col-md-3" %>
+    <%= f.text_field :name, placeholder: "", class: "col-md-2 form-control" %>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.submit "新規登録", class: "btn btn-success col-md-1 offset-1" %>
+  </div>
+  
+<% end %>
+
+  <div>
+    既に登録済みの方は
+  <br>
+    <%= link_to "こちら", "/users/sign_in" %>からログインして下さい
+  </div>
+</div>  
