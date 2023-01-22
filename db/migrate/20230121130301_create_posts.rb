@@ -3,8 +3,9 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
 
       t.timestamps
-      t.string:title
-      t.text:impression
+      t.integer:user_id, null:false
+      t.string:title, null:false
+      t.text:impression, null:false
     end
   end
 end
