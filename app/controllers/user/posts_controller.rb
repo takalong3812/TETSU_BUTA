@@ -3,7 +3,6 @@ class User::PostsController < ApplicationController
     def create
      @post= Post.new(post_params)
      @post.user_id= current_user.id
-  
       if @post.save
       flash[:notice]= '投稿に成功しました'
       redirect_to user_post_path(@post.id)
@@ -14,8 +13,18 @@ class User::PostsController < ApplicationController
       end       
     end
     
+   def search
+     if params[:title].present?
+      @posts = Post.where('title LIKE ?', "%#{params[:title]}%")
+     else
+      @posts = Post.none
+     end
+   end
+
+    
     def index
      @posts= Post.all
+    
     end
     
     def show
@@ -23,10 +32,11 @@ class User::PostsController < ApplicationController
      @user= @post.user
      @new_post= Post.new
     end 
-    
+   
+   
   private
     def post_params
-     params.require(:post).permit(:title, :impression, :image, :user_id)
+     params.require(:post).permit(:title, :impression, :image, :address, :user_id)
     end   
     
      

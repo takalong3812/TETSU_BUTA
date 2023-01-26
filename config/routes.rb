@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   
   namespace :user do
-   resources :posts, :except => [:new, :edit]
+   resources :posts do
+       get :search, on: :collection
+    end
    resources :users
   end
   
