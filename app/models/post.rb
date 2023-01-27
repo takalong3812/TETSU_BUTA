@@ -2,6 +2,8 @@ class Post < ApplicationRecord
 
 has_one_attached :image
 belongs_to :user
+has_many :post_tag_relations, dependent: :destroy
+has_many :tags, through: :post_tag_relations, dependent: :destroy
 validates :title,presence:true
 validates :impression,presence:true, length:{maximum: 200} 
 validates :address,presence:true

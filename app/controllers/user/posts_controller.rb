@@ -24,6 +24,14 @@ class User::PostsController < ApplicationController
     
     def index
      @posts= Post.all
+     
+     if params[:tag_ids]
+      @posts= []
+      params[:tag_ids].each do |key, value|
+        @posts += Tag.find_by(name: key).posts if value == "1"
+      end
+      @posts.uniq!
+     end 
     
     end
     
@@ -35,8 +43,9 @@ class User::PostsController < ApplicationController
    
    
   private
+
     def post_params
-     params.require(:post).permit(:title, :impression, :image, :address, :user_id)
+     params.require(:post).permit(:title, :impression, :image, :address, :user_id, tag_ids: [])
     end   
     
      
