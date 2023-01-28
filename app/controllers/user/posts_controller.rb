@@ -40,6 +40,7 @@ class User::PostsController < ApplicationController
      @post= Post.find(params[:id])
      @user= @post.user
      @new_post= Post.new
+     @like= Like.new
     end 
    
    
