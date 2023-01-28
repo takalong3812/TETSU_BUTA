@@ -24,16 +24,17 @@ class User::PostsController < ApplicationController
     
     def index
      @posts= Post.all
-     
-     if params[:tag_ids]
-      @posts= []
-      params[:tag_ids].each do |key, value|
+     @posts= params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+      if params[:tag_ids]
+      @posts = []
+      params[:tag_ids].each do |key, value|      
         @posts += Tag.find_by(name: key).posts if value == "1"
       end
       @posts.uniq!
-     end 
+      end
+    end  
     
-    end
+    
     
     def show
      @post= Post.find(params[:id])
