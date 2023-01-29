@@ -39,8 +39,8 @@ class User::PostsController < ApplicationController
     def show
      @post= Post.find(params[:id])
      @user= @post.user
-     @new_post= Post.new
      @like= Like.new
+     @comment= Comment.new
     end 
    
    

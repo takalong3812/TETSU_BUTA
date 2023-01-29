@@ -14,11 +14,13 @@ Rails.application.routes.draw do
 
   
   namespace :user do
+   resources :users      
    resources :posts do
    get :search, on: :collection
    resources :likes, only: [:create, :destroy]
+   resources :comments, only:[:create, :destroy]
    end
-   resources :users
+   
    
    
   end

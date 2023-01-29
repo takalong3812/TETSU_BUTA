@@ -109,13 +109,14 @@
        <td>
         <%= link_to user_user_path(post.user) do %>
         <%= image_tag post.user.image, size: "50x50" %>
-        <% end %>
+        <% end %> 
        </td>
        <td><%= link_to post.title, user_post_path(post.id)%></td>
        <td><%= post.impression %></td>
        <td><%= post.address %></td>
       </tr>
       (<%= post.liked_users.count %>)
+      <p><%=link_to "#{@post.comments.count}コメント",user_post_path(@post.id) %></p>
       <% end %>
      </tbody>
    </table>
