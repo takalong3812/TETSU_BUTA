@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    registrations: "user/registrations",
    sessions: 'user/sessions'
   }
-  
+ 
   devise_for :admin,skip: [:registration, :passwords] ,controllers:{
     sessions: "admin/sessions"
   } 
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   
   namespace :user do
-   resources :users      
+   resources :users
+   post '/guests/guest_sign_in', to: 'guest#new_guest'
    resources :posts do
    get :search, on: :collection
    resources :likes, only: [:create, :destroy]
