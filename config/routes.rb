@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
    registrations: "user/registrations",
    sessions: 'user/sessions'
-  }
+  } 
  
   devise_for :admin,skip: [:registration, :passwords] ,controllers:{
     sessions: "admin/sessions"
@@ -21,13 +21,11 @@ Rails.application.routes.draw do
    resources :likes, only: [:create, :destroy]
    resources :comments, only:[:create, :destroy]
    end
-   
-   
-   
+  
   end
-  
-  
+ 
   namespace :admin do
+  root to: 'homes#top'
   end
   
   

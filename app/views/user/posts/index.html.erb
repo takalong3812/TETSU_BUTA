@@ -16,7 +16,7 @@
       <% @posts.each do |post| %>
       <tr>
        <td>
-        <%= link_to user_user_path(post.user) do %>
+        <% if post.user.image.attached? %>
         <%= image_tag post.user.image, size: "50x50" %>
         <% end %>
        </td>
@@ -30,7 +30,7 @@
      </tbody>
    </table>
   </div> 
-  
+ 
  
   
  

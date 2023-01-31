@@ -8,7 +8,9 @@
        </li>
   
    <h2>ユーザー情報</h2>
+       <% if @user.image.attached? %>
        <%= image_tag @user.image, size: "100x100" %>
+       <% end %>
      <table class="table">
         <tbody>
          <tr>
@@ -109,7 +111,7 @@
       <% @posts.each do |post| %>
       <tr>
        <td>
-        <%= link_to user_user_path(post.user) do %>
+        <% if @user.image.attached? %>
         <%= image_tag post.user.image, size: "50x50" %>
         <% end %> 
        </td>
@@ -123,7 +125,7 @@
      </tbody>
    </table>
   </div> 
-      
+  
       
       
       

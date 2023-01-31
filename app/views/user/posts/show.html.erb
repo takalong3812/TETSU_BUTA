@@ -4,7 +4,9 @@
     <table class="table">
         <tbody>
          <tr>
+             <% if @user.image.attached? %>
             <td><%= image_tag @user.image, size: "100x100" %></td>
+             <% end %>
             <td><%= image_tag @post.image, size: "200x200" %></td>
             <td><%= link_to @user.name, user_user_path(@user.id) %></td>
             <td><%= link_to @post.title, user_post_path(@post.id) %></td>
