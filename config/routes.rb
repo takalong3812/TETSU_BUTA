@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   
   namespace :user do
-   resources :users
-   post '/guests/guest_sign_in', to: 'guest#new_guest'
+   resources :users 
+   post '/guests/guest_sign_in', to: 'guests#new_guest'
    resources :posts do
    get :search, on: :collection
    resources :likes, only: [:create, :destroy]
@@ -27,8 +27,11 @@ Rails.application.routes.draw do
   namespace :admin do
   root to: 'homes#top'
   resources :users
-  resources :posts
+  resources :posts do
+  resources :comments, only:[:destroy]
   end
+
+ end
   
   
   

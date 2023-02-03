@@ -9,6 +9,26 @@ class User::UsersController < ApplicationController
   @post= Post.new
  end
  
+ def edit
+   @user= User.find(params[:id])
+    if @user == current_user
+    else
+     redirect_to user_user_path(current_user)
+    end
+ end  
+ 
+ def update
+    @user= User.find(params[:id])
+    if @user.update(user_params)
+     flash[:notice]= 'You have updated user successfully'
+     redirect_to user_user_path(current_user)
+    else
+      render:edit
+    end
+ end
+ 
+
+ 
  
  private
  

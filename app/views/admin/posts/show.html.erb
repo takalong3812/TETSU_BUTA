@@ -7,8 +7,8 @@
             <td><%= image_tag @user.image, size: "100x100" %></td>
              <% end %>
             <td><%= image_tag @post.image, size: "200x200" %></td>
-            <td><%= link_to @user.name, user_user_path(@user.id) %></td>
-            <td><%= link_to @post.title, user_post_path(@post.id) %></td>
+            <td><%= link_to @user.name, admin_user_path(@user.id) %></td>
+            <td><%= link_to @post.title, admin_post_path(@post.id) %></td>
             <td><%= @post.impression %></td>
             <td><%= @post.address %></td>
             
@@ -24,30 +24,17 @@
              <span><%= tag.name %></span>
             <% end %>
             
-            <% if @post.user == current_user %>
-            <td>
-              <%= link_to "Destroy", user_post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
-            </td>
-            <% end %>
+            <td><%= link_to "投稿を削除", admin_post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"}, class:"btn btn-danger" %></td>
          </tr>
         </tbody>
     </table>    
-</div>
-
-<div>
+  <div>
     <p>コメント件数：<%= @post.comments.count %></p>
     <% @post.comments.each do |comment| %>
       <p><%= image_tag comment.user.image, size: "60x60" %></p>
       <%= comment.user.name %>
       <%= comment.created_at.strftime('%Y%m%d')%><%= comment.comment %>
-      <% if comment.user == current_user %>
-       <%= link_to "削除", user_post_comment_path(comment.post,comment), method: :delete %>
-      <% end %> 
-    <% end %>  
-</div>    
-<div>     
-     <%= form_with model:@comment,url: user_post_comments_path(@post.id), local:true do |f| %>
-      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-      <%= f.submit "送信する" %>
-     <% end %>
-</div>     
+       <%= link_to "削除", admin_post_comment_path(comment.post,comment), method: :delete %>
+      <% end %>
+  </div>    
+</div>

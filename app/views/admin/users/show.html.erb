@@ -40,10 +40,10 @@
         <%= image_tag post.user.image, size: "50x50" %>
         <% end %> 
        </td>
-       <td><%= link_to post.title, user_post_path(post.id)%></td>
+       <td><%= link_to post.title, admin_post_path(post.id)%></td>
        <td><%= post.impression %></td>
        <td><%= post.address %></td>
-       <td><%=link_to "#{post.comments.count}コメント",user_post_path(post.id) %></td>
+       <td><%=link_to "#{post.comments.count}コメント",admin_post_path(post.id) %></td>
        <td><%= post.liked_users.count %></td>
       </tr>
       <% end %>
