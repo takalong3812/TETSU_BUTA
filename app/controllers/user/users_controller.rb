@@ -27,9 +27,20 @@ class User::UsersController < ApplicationController
     end
  end
  
+ def unsubscribe
+  @user= User.find(params[:id])
+ end 
+ 
+ 
+ def withdrawal
+  @user=current_user
+  @user.update(is_deleted: true)
+  reset_session
+  flash[:notice]= "退会処理を実行しました"
+  redirect_to root_path
+ end 
+  
 
- 
- 
  private
  
   def move_to_signed_in
@@ -40,7 +51,7 @@ class User::UsersController < ApplicationController
   end
  
   def user_params
-   params.require(:user).permit(:name, :introduction, :image)
+   params.require(:user).permit(:name, :introduction, :image, :is_deleted)
   end 
  
  

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   namespace :user do
    resources :users 
+   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+   patch 'users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
    post '/guests/guest_sign_in', to: 'guests#new_guest'
    resources :posts do
    get :search, on: :collection
