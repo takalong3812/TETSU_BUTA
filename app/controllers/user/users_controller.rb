@@ -15,6 +15,9 @@ class User::UsersController < ApplicationController
     else
      redirect_to user_user_path(current_user)
     end
+    if @user.email == 'guest@example.com'
+     redirect_to user_user_path(current_user), notice: 'ゲストユーザーは情報を編集できません'
+    end 
  end  
  
  def update
@@ -29,6 +32,13 @@ class User::UsersController < ApplicationController
  
  def unsubscribe
   @user= User.find(params[:id])
+   if @user == current_user
+   else
+     redirect_to user_user_path(current_user)
+   end
+   if @user.email == 'guest@example.com'
+   redirect_to user_user_path(current_user), notice: 'ゲストユーザーは退会できません'
+   end 
  end 
  
  
